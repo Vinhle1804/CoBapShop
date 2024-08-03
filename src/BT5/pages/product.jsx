@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from '../component/header';
 import productList from '../pages/productList';
 import { useDispatch } from "react-redux";
-import { addtoCart } from "../redux/slide/cartSlice"; // Điều chỉnh đường dẫn nếu cần
+import { addtoCart } from "../redux/slide/cartSlice"; 
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 
 function Product() {
@@ -32,7 +33,8 @@ function Product() {
               onClick={() => addCart(product)} 
               className="bg-red-400 p-2 mt-2"
             >
-              Muangay
+              <AddShoppingCartIcon/>
+          
             </button>
           </div>
         ))}

@@ -1,4 +1,5 @@
 import React from 'react';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function Header() {
   return (
@@ -17,9 +18,9 @@ function Header() {
 
       {/* Links (Text Links) */}
       <div className="flex items-center space-x-4">
-        <a href="/bt5/cart" className="hover:text-gray-400">Cart</a>
-        <a href="/login" className="hover:text-gray-400">Login</a>
-        <a href="/signup" className="hover:text-gray-400">Sign Up</a>
+        <a href="/bt5/cart" className="hover:text-gray-400"> <ShoppingCartIcon/> </a>
+        <a href="/bt5/login" className="hover:text-gray-400">Login</a>
+        <a href="/bt5/register" className="hover:text-gray-400">Sign Up</a>
       </div>
     </header>
   );

@@ -1,11 +1,23 @@
 import React from 'react';
 import Header from '../component/header';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateQuantity, removeItem } from '../redux/slide/cartSlice';
 
 function Cart() {
   const cart = useSelector(state => state.cart.cart);
-  
-  const total = cart.reduce((acc, item) => acc + item.price, 0);
+  const dispatch = useDispatch();
+
+  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+  const handleQuantityChange = (id, quantity) => {
+    if (quantity >= 1) {
+      dispatch(updateQuantity({ id, quantity }));
+    }
+  };
+
+  const handleRemoveItem = (id) => {
+    dispatch(removeItem(id));
+  };
 
   return (
     <div>
@@ -29,21 +41,33 @@ function Cart() {
               </div>
               {/* Quantity */}
               <div className="w-1/6 text-center">
-                <p>1</p> {/* Cần cập nhật logic cho số lượng sản phẩm */}
+                <input
+                  type="number"
+                  value={item.quantity}
+                  onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                  className="quantity w-12 text-center border"
+                  min="1"
+                />
               </div>
               {/* Price */}
               <div className="w-1/6 text-center">
-                <p>${item.price}</p>
+                <p>{(item.price * item.quantity).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
               </div>
               {/* Remove Button */}
-              <button className="text-red-500 hover:underline ml-4">Remove</button> {/* Thêm logic để xóa sản phẩm */}
+              <button
+                onClick={() => handleRemoveItem(item.id)}
+                className="text-red-500 hover:underline ml-4"
+              >
+                Remove
+              </button>
             </div>
           ))}
         </div>
         {/* Total Section */}
         <div className="mt-4 p-4 bg-white shadow-sm">
-          <h2 className="font-semibold text-xl">Total: ${total}</h2>
-          <button className="bg-indigo-500 text-white py-2 px-4 mt-2">Checkout</button>
+          <h2 className="font-semibold text-xl">Total: {total.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</h2>
+        <a href="../pages/checkout">
+          <button className="bg-indigo-500 text-white py-2 px-4 mt-2">Checkout </button></a>
         </div>
       </div>
     </div>
