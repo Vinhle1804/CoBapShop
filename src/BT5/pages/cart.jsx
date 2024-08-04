@@ -42,7 +42,7 @@ function Cart() {
   };
 
   const handleRemoveItem = (id) => {
-    dispatch(removeItem(id));
+    // Hiển thị hộp thoại xác nhận trước khi xóa sản phẩm
     Swal.fire({
       title: 'Bạn có chắc chắn muốn xóa sản phẩm này?',
       text: "Sản phẩm sẽ được xóa khỏi giỏ hàng!",
@@ -54,14 +54,13 @@ function Cart() {
       cancelButtonText: 'Hủy'
     }).then((result) => {
       if (result.isConfirmed) {
-        // Nếu người dùng xác nhận, xóa sản phẩm
+        // Nếu người dùng xác nhận, thực hiện hành động xóa sản phẩm
         dispatch(removeItem(id));
-      } else {
-        // Nếu người dùng hủy, không làm gì cả
-        // Có thể là điều này không cần thiết vì không có hành động nào
       }
+      // Nếu người dùng hủy, không làm gì cả
     });
   };
+  
 
   return (
     <div>
@@ -125,4 +124,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default Cart;  
