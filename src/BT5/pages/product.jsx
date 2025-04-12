@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Header from '../component/header';
-import productList from '../pages/productList';
 import { useDispatch } from "react-redux";
 import { addtoCart } from "../redux/slide/cartSlice"; 
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import productList from '../data/productList';
 
 function Product() {
   const [currentIndex, setCurrentIndex] = useState(0);

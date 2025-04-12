@@ -7,6 +7,7 @@ import Login from "./BT5/pages/login";
 import Register from "./BT5/pages/register";
 import Checkout from "./BT5/pages/checkout";
 import Index from "./BT5/pages";
+import Orders from "./BT5/pages/orders";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Route path="/bt5" element={<BT5 />} />
 
       <Route path="/bt5/cart" element={<Cart />} />
+      <Route path="/bt5/order" element={<Orders/>} />
       <Route path="/pages/checkout" element={<Checkout />} />
       <Route />
 
