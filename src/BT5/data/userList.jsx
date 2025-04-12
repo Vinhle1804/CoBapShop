@@ -1,17 +1,17 @@
 const userList = [
     {
       id: 1,
-      username: "admin01",
+      username: "thuy nga",
       password: "123456",
-      email: "2251120197@ut.edu.vn",
-      fullName: "Quản Trị Viên",
+      email: "2251120123@ut.edu.vn",
+      fullName: "Thuy Nga",
       role: 1 // 1 là admin
     },
     {
       id: 2,
       username: "user01",
       password: "123456",
-      email: "2251120144@ut.edu.vn",
+      email: "2251120124@ut.edu.vn",
       fullName: "Nguyễn Văn A",
       role: 0 // 0 là khách hàng
     },

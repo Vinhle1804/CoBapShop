@@ -16,15 +16,16 @@ export default function App() {
       <Route path="/bt5" element={<BT5 />} />
 
       <Route path="/bt5/cart" element={<Cart />} />
-      <Route path="/bt5/order" element={<Orders/>} />
       <Route path="/pages/checkout" element={<Checkout />} />
       <Route />
-
+      
       <Route path="/bt5/about" element={<About />} />
       <Route path="/bt5/product" element={<Product />} />
       <Route path="/bt5/login" element={<Login />} />
       <Route path="/bt5/register" element={<Register />} />
       <Route />
+      <Route path="/bt5/order" element={<Orders/>} />
+
     </Routes>
   );
 }

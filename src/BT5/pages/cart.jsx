@@ -90,7 +90,7 @@ function Cart() {
       isOpen ? "Đơn hàng sẽ được giao tận lớp." : "Vui lòng đến quầy nhận hàng.",
       "success"
     ).then(() => {
-      navigate("bt5/order");
+      navigate("/bt5/order");
     });
   };
 
