@@ -1,30 +1,34 @@
 import { Route, Routes } from "react-router-dom";
-import BT5 from "./BT5/bt5";
-import Cart from "./BT5/pages/cart";
-import About from "./BT5/pages/about";
-import Product from "./BT5/pages/product";
-import Login from "./BT5/pages/login";
-import Register from "./BT5/pages/register";
-import Checkout from "./BT5/pages/checkout";
-import Index from "./BT5/pages";
-import Orders from "./BT5/pages/orders";
+import BT5 from "./tdtk//bt5";
+import Index from "./tdtk//pages";
+import Cart from "./tdtk//pages/cart";
+import Checkout from "./tdtk//pages/checkout";
+import About from "./tdtk//pages/about";
+import Product from "./tdtk//pages/product";
+import Login from "./tdtk//pages/login";
+import Register from "./tdtk//pages/register";
+import Order from "./tdtk//pages/orders";
+
+
+
+
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Index/>}/>
-      <Route path="/bt5" element={<BT5 />} />
+      <Route path="/tdtk/" element={<BT5 />} />
 
-      <Route path="/bt5/cart" element={<Cart />} />
-      <Route path="/pages/checkout" element={<Checkout />} />
+      <Route path="/tdtk/cart" element={<Cart />} />
+      <Route path="/pages/checkout" element={<Checkout/>} />
       <Route />
       
-      <Route path="/bt5/about" element={<About />} />
-      <Route path="/bt5/product" element={<Product />} />
-      <Route path="/bt5/login" element={<Login />} />
-      <Route path="/bt5/register" element={<Register />} />
+      <Route path="/tdtk/about" element={<About/>} />
+      <Route path="/tdtk/product" element={<Product/>} />
+      <Route path="/tdtk/login" element={<Login/>} />
+      <Route path="/tdtk/register" element={<Register/>} />
       <Route />
-      <Route path="/bt5/order" element={<Orders/>} />
+      <Route path="/tdtk/order" element={<Order/>} />
 
     </Routes>
   );
