@@ -20,7 +20,7 @@ export default function App() {
       <Route path="/" element={<Index/>}/>
       <Route path="/tdtk/" element={<Index />} />
 
-      <Route path="/tdtk/cart" element={<RoleBasedRoute allowedRoles={[1,2]}>
+      <Route path="/tdtk/cart" element={<RoleBasedRoute allowedRoles={[0,1]}>
       <Cart />
     </RoleBasedRoute>} />
       <Route path="/pages/checkout" element={<RoleBasedRoute allowedRoles={[0,1]}>
