@@ -7,9 +7,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Logo & Description */}
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold mb-2">MyCompany</h2>
+          <h2 className="text-xl sm:text-2xl font-bold mb-2">Trường Đại Học Giao Thông Vận Tải Thành Phố Hồ Chí Minh - Cơ sở 1</h2>
           <p className="text-sm sm:text-base leading-relaxed">
-            Mang đến sản phẩm chất lượng cao cho khách hàng trên toàn quốc.
+            Mang đến sản phẩm chất lượng cao.
           </p>
         </div>
 
@@ -27,9 +27,9 @@ const Footer = () => {
         {/* Contact Info */}
         <div>
           <h3 className="text-lg font-semibold mb-2">Liên hệ</h3>
-          <p className="text-sm sm:text-base">📍 123 Đường ABC, TP.HCM</p>
-          <p className="text-sm sm:text-base">📞 0123 456 789</p>
-          <p className="text-sm sm:text-base">✉️ support@mycompany.vn</p>
+          <p className="text-sm sm:text-base">📍 02 Võ Oanh, Phường 25, Bình Thạnh, Hồ Chí Minh</p>
+          <p className="text-sm sm:text-base">📞  028 3899 2862</p>
+          <p className="text-sm sm:text-base">✉️ support@ut.edu.vn</p>
         </div>
       </div>
 

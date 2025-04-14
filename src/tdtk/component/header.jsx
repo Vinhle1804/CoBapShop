@@ -38,89 +38,68 @@ function Header() {
         </a>
       </div>
 
-      {/* Desktop Navigation */}
+      {/* Navigation - Desktop */}
       <nav className="hidden md:flex flex-grow justify-center space-x-6 md:space-x-8">
         <a href="/tdtk/product" className="hover:text-gray-400 text-lg md:text-xl font-semibold transition">Product</a>
         <a href="/tdtk/about" className="hover:text-gray-400 text-lg md:text-xl font-semibold transition">About</a>
         <a href="https://www.facebook.com/hi.all.people/" className="hover:text-gray-400 text-lg md:text-xl font-semibold transition">Contact</a>
       </nav>
 
-      {/* Desktop Links */}
-      <div className="hidden md:flex items-center space-x-6 md:space-x-8 relative">
+      {/* Auth + Cart - Always Visible */}
+      <div className="flex items-center space-x-4 md:space-x-6 relative">
+        {/* Xin chào / Auth */}
         {user ? (
           <div className="relative">
             <button
               onClick={() => setUserMenuOpen(!userMenuOpen)}
-              className="text-lg font-semibold hover:text-gray-400 transition focus:outline-none"
+              className="text-sm md:text-lg font-semibold hover:text-gray-400 transition focus:outline-none"
             >
               Xin chào, {user.username}
             </button>
             {userMenuOpen && (
-              <div> 
-            
               <div className="absolute right-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg z-20">
-                <button
-                 href='/'
-                  className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                <a
+                  href="/tdtk/order"
+                  className="block px-4 py-2 hover:bg-gray-100 text-sm"
                 >
-                  Thông tin
-                </button>
+                  Lịch sử đơn hàng
+                </a>
                 <button
-                  className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                  onClick={handleLogout}
+                  className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
                 >
                   Đăng xuất
                 </button>
-              </div>
               </div>
             )}
           </div>
         ) : (
           <>
-            <a href="/tdtk/login" className="hover:text-gray-400 text-lg font-semibold transition">Login</a>
-            <a href="/tdtk/register" className="hover:text-gray-400 text-lg font-semibold transition">Sign Up</a>
+            <a href="/tdtk/login" className="hover:text-gray-400 text-sm md:text-lg font-semibold transition">Login</a>
+            <a href="/tdtk/register" className="hover:text-gray-400 text-sm md:text-lg font-semibold transition">Sign Up</a>
           </>
         )}
+
+        {/* Cart Icon */}
         <a href="/tdtk/cart" className="hover:text-gray-400 transition">
           <ShoppingCartIcon fontSize="large" />
         </a>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? <CloseIcon fontSize="large" /> : <MenuIcon fontSize="large" />}
+        </button>
       </div>
 
-      {/* Mobile Hamburger */}
-      <button
-        className="md:hidden text-white"
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-      >
-        {mobileMenuOpen ? <CloseIcon fontSize="large" /> : <MenuIcon fontSize="large" />}
-      </button>
-
-      {/* Mobile Menu */}
+      {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-gray-800 text-white flex flex-col items-center space-y-4 py-6 z-10 shadow-lg">
+        <div className="absolute top-full left-0 w-full bg-gray-800 text-white flex flex-col items-center space-y-4 py-6 z-10 shadow-lg md:hidden">
           <a href="/tdtk/product" className="hover:text-gray-400 text-lg font-semibold transition">Product</a>
           <a href="/tdtk/about" className="hover:text-gray-400 text-lg font-semibold transition">About</a>
           <a href="https://www.facebook.com/hi.all.people/" className="hover:text-gray-400 text-lg font-semibold transition">Contact</a>
-          <a href="/tdtk/cart" className="hover:text-gray-400 text-lg font-semibold transition flex items-center gap-2">
-            <ShoppingCartIcon />
-            Cart
-          </a>
-          {user ? (
-            <>
-              <div className="text-lg font-semibold">
-                Xin chào, {user.username}
-              </div>
-              <button
-                onClick={handleLogout}
-                className="hover:text-gray-400 text-lg font-semibold transition"
-              >
-                Đăng xuất
-              </button>
-            </>
-          ) : (
-            <>
-              <a href="/tdtk/login" className="hover:text-gray-400 text-lg font-semibold transition">Login</a>
-              <a href="/tdtk/register" className="hover:text-gray-400 text-lg font-semibold transition">Sign Up</a>
-            </>
-          )}
         </div>
       )}
     </header>

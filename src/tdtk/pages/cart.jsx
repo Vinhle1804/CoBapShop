@@ -93,7 +93,6 @@ function Cart() {
     localStorage.setItem("orders", JSON.stringify([...existingOrders, order]));
     localStorage.removeItem("cart");
 
-    // Nếu là chuyển khoản → hiển thị mã QR Momo
     if (shippingInfo.paid === "Chuyển khoản") {
       Swal.fire({
         title: "Quét mã để thanh toán",
@@ -109,18 +108,15 @@ function Cart() {
 <div style="display: flex; justify-content: center; margin-top: 20px;">
   <img src="${momoQR}" alt="QR Momo" style="max-width: 300px; width: 100%; height: auto; border-radius: 8px;" />
 </div>
-
-
         `,
         showConfirmButton: false,
-        timer: 10000, // 10 giây
+        timer: 10000, 
         timerProgressBar: true,
         didClose: () => {
           navigate("/tdtk/order");
         },
       });
     } else {
-      // Nếu là tiền mặt → hiển thị thông báo thường
       Swal.fire(
         "Đặt hàng thành công!",
         isOpen
@@ -133,10 +129,24 @@ function Cart() {
     }
   };
 
+  // Function to handle continue shopping
+  const handleContinueShopping = () => {
+    navigate("/tdtk/product"); // Navigate to the products page
+  };
+
   return (
     <div>
       <Header />
       <div className="container mx-auto mt-10 px-4">
+           {/* Continue Shopping Button */}
+        <div className="mt-6 text-center flex ">
+          <button
+            onClick={handleContinueShopping}
+            className="py-2 px-6 bg-orange-500 text-white rounded hover:bg-indigo-600"
+          >
+            Tiếp tục chọn món
+          </button>
+        </div>
         <h1 className="font-semibold text-2xl mb-4 text-center">Giỏ hàng</h1>
 
         <div className="flex flex-col space-y-4">
@@ -188,6 +198,8 @@ function Cart() {
             </div>
           ))}
         </div>
+
+
         <div className="mt-6">
           <h3 className="text-lg font-semibold mb-2">Phương thức thanh toán</h3>
           <div className="flex flex-col md:flex-row gap-4">
@@ -273,15 +285,20 @@ function Cart() {
               </form>
             </div>
           )}
-          <div className="flex justify-center mt-6">
-            <button
-              onClick={handleOrder}
-              className="bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-6 rounded"
-            >
-              Đặt hàng
-            </button>
-          </div>
+
+          <button
+            onClick={handleOrder}
+            disabled={cart.length === 0}
+            className={`py-2 mt-6 px-6 rounded text-white transition-all ${
+              cart.length === 0
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-indigo-500 hover:bg-indigo-600"
+            }`}
+          >
+            Đặt hàng
+          </button>
         </div>
+      
       </div>
     </div>
   );

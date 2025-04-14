@@ -1,35 +1,43 @@
 const userList = [
     {
       id: 1,
-      username: "thuy nga",
+      username: "Ngọc Nhi",
       password: "123456",
-      email: "2251120123@ut.edu.vn",
-      fullName: "Thuy Nga",
-      role: 1 // 1 là admin
+      email: "nnhi39958@gmail.com",
+      fullName: "Ngô Thị Ngọc Nhi",
+      role: 0 // 1 là admin
     },
     {
       id: 2,
-      username: "user01",
+      username: "Thùy Nga",
       password: "123456",
-      email: "2251120124@ut.edu.vn",
-      fullName: "Nguyễn Văn A",
+      email: "Ngantt6599@ut.edu.vn",
+      fullName: "Nguyễn Thị Thùy Nga",
       role: 0 // 0 là khách hàng
     },
     {
       id: 3,
-      username: "user02",
-      password: "userpass02",
-      email: "user02@example.com",
-      fullName: "Trần Thị B",
+      username: "Công Thế",
+      password: "123456",
+      email: "ngaykhacla2019@gmail.com",
+      fullName: "Hùynh Công Thế",
       role: 0
     },
     {
       id: 4,
-      username: "shipper01",
-      password: "shipper2024",
-      email: "shipper01@example.com",
-      fullName: "Lê Văn C",
-      role: 2 // 2 là nhân viên giao hàng (nếu cần)
+      username: "Ngọc Huy",
+      password: "123456",
+      email: "tranngochuy1206@gmail.com",
+      fullName: "Trần Ngọc Huy",
+      role: 0
+    },
+    {
+      id: 5,
+      username: "Quốc Đạt",
+      password: "123456",
+      email: "dattqd190605@gmail.com",
+      fullName: "Trần Quốc Đạt",
+      role: 0
     }
   ];
   
