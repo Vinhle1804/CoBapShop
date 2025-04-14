@@ -80,12 +80,15 @@ function Cart() {
       }
     }
 
+    const paymentStatus =
+      shippingInfo.paid === "Chuyển khoản" ? "Đã thanh toán" : "Chưa thanh toán";
+
     const order = {
       id: Date.now(),
       items: cart,
       total,
       shipping: isOpen ? shippingInfo : null,
-      paid: isOpen ? shippingInfo.paid : "Chưa thanh toán",
+      paid: paymentStatus,
       createdAt: new Date().toISOString(),
     };
 
@@ -105,12 +108,12 @@ function Cart() {
               currency: "VND",
             }
           )}</p>
-<div style="display: flex; justify-content: center; margin-top: 20px;">
-  <img src="${momoQR}" alt="QR Momo" style="max-width: 300px; width: 100%; height: auto; border-radius: 8px;" />
-</div>
+          <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <img src="${momoQR}" alt="QR Momo" style="max-width: 300px; width: 100%; height: auto; border-radius: 8px;" />
+          </div>
         `,
         showConfirmButton: false,
-        timer: 10000, 
+        timer: 10000,
         timerProgressBar: true,
         didClose: () => {
           navigate("/tdtk/order");
@@ -129,16 +132,14 @@ function Cart() {
     }
   };
 
-  // Function to handle continue shopping
   const handleContinueShopping = () => {
-    navigate("/tdtk/product"); // Navigate to the products page
+    navigate("/tdtk/product");
   };
 
   return (
     <div>
       <Header />
       <div className="container mx-auto mt-10 px-4">
-           {/* Continue Shopping Button */}
         <div className="mt-6 text-center flex ">
           <button
             onClick={handleContinueShopping}
@@ -199,7 +200,6 @@ function Cart() {
           ))}
         </div>
 
-
         <div className="mt-6">
           <h3 className="text-lg font-semibold mb-2">Phương thức thanh toán</h3>
           <div className="flex flex-col md:flex-row gap-4">
@@ -229,8 +229,8 @@ function Cart() {
         <div className="mt-6 p-6 bg-white shadow rounded">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-semibold">
-              Tổng cộng:{" "}
-              <span className="text-indigo-600">
+              Tổng cộng:
+              <span className="text-indigo-600 ml-2">
                 {total.toLocaleString("vi-VN", {
                   style: "currency",
                   currency: "VND",
@@ -298,7 +298,6 @@ function Cart() {
             Đặt hàng
           </button>
         </div>
-      
       </div>
     </div>
   );

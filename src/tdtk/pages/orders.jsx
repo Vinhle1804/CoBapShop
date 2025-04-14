@@ -6,9 +6,13 @@ export default function Order() {
 
   useEffect(() => {
     const savedOrders = JSON.parse(localStorage.getItem("orders")) || [];
-    setOrders(savedOrders.reverse()); // đơn mới nhất lên trước
+    const normalizedOrders = savedOrders.map((order) => ({
+      ...order,
+      paid: order.paid === true || order.paid === "Đã thanh toán", // ép thành boolean
+    }));
+    setOrders(normalizedOrders.reverse());
   }, []);
-
+  
   return (
     <div>
       <Header />
