@@ -8,7 +8,7 @@ import {
 } from "../redux/slide/cartSlice";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import momoQR from "../assets/checkout.jpg";
+import momoQR from "../assets/checkouttt.jpeg";
 
 function Cart() {
   const cart = useSelector((state) => state.cart.cart);
